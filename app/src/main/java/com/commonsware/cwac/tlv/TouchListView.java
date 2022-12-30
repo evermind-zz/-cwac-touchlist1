@@ -372,6 +372,7 @@ public class TouchListView extends ListView {
                     } else {
                         if (mDropListener != null && mDragPos >= 0 && mDragPos < getCount()) {
                             mDropListener.drop(mFirstDragPos, mDragPos);
+                            mDropListener.drop2(this, mFirstDragPos, mDragPos);
                         }
                         unExpandViews(false);
                     }
@@ -490,6 +491,7 @@ public class TouchListView extends ListView {
 
     public interface DropListener {
         void drop(int from, int to);
+        void drop2(View view, int from, int to);
     }
 
     public interface RemoveListener {
